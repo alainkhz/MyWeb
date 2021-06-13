@@ -4,10 +4,10 @@ from tkinter import*
 import tkinter
 from typing import Collection
 from tkinter.font import*
-from main import goods
-
-#開檔案
-main  = open("main.py",mode="a",encoding='utf-8')  
+import sys
+import shutil
+import os
+import stat
 
 
 #視窗
@@ -47,12 +47,13 @@ def data ():
     name = Ename.get() 
     price = Eprice.get()
     pic = Epic.get()
-    main.write("\n" + name + " = goods(" + "'" + name + "'" + "," + price + "," + "'" + pic + "'" + ")")
-
+    file = open("C:\\game\\GitHub\\MyWeb\\notyet\\" + name,mode="a",encoding="UTF-8")
+    data = open("檔案name",mode="w",encoding="UTF-8")
+    data.write("\n"+name)
+    file.write("\n" + name + "\n" + price + "\n" + pic + "\n")
 #button
 but = Button(text="完成",font="500",command=data)
 but.place(x=480,y=175,width=140,height=80)
-
 
 gui.mainloop()
 
